@@ -1,0 +1,91 @@
+@use "../styles/variables" as v;
+
+@mixin flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-space-beetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-row-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+@mixin flex-column-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+@mixin flex-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin green-button {
+  width: 100px;
+  height: 40px;
+  border-radius: v.$border-radius-md;
+  font-family: v.$font-family;
+  font-size: v.$font-size-sm;
+  background-color: v.$third-color;
+  color: v.$light-color;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin red-button {
+  width: 100px;
+  height: 40px;
+  border-radius: v.$border-radius-md;
+  font-family: v.$font-family;
+  font-size: v.$font-size-sm;
+  background-color: v.$danger-color;
+  color: v.$light-color;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin input-style {
+  margin-bottom: 2rem;
+  width: 80%;
+  height: 2rem;
+  padding: 1.4rem;
+  border-radius: v.$border-radius-md;
+  border: 2px solid v.$third-color;
+  font-size: v.$font-size-base;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin toggle-input {
+  width: 150px;
+  height: 30px;
+  border: none;
+  padding: 0.8rem;
+
+  &:focus {
+    outline: none;
+  }
+}

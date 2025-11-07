@@ -1,0 +1,107 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.container {
+  width: 100%;
+  min-height: 80vh;
+  font-family: v.$font-family;
+
+  .add {
+    width: 100%;
+    height: 80vh;
+    @include m.flex-column-center;
+    font-size: 6rem;
+    color: v.$second-color;
+    cursor: pointer;
+
+    span {
+      font-size: 1.5rem;
+      color: black;
+      margin-bottom: 1rem;
+    }
+  }
+  .sub-container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 300px;
+    gap: 4rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    //Bununla beraber grid elemanlarını ortalarız
+    place-items: center;
+    margin: 4rem 0rem;
+    margin-bottom: 8rem;
+    .genelB {
+      grid-column: 1 / span 3;
+      width: 250px;
+      height: 250px;
+      border-radius: 100%;
+      @include m.flex-column-center;
+      background: linear-gradient(135deg, #5de0e6, #004aad);
+      font-size: v.$font-size-lg;
+      margin-bottom: 2rem;
+
+      h2 {
+        margin-bottom: 0.8rem;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      input {
+        @include m.toggle-input;
+      }
+    }
+
+    p {
+      margin: 1rem;
+    }
+
+    button {
+      @include m.red-button;
+      margin-top: 1rem;
+    }
+
+    .categories {
+      width: 85% !important;
+      border: none;
+      height: 100% !important;
+      background: linear-gradient(135deg, #5de0e6, #004aad);
+      border-radius: v.$border-radius-md;
+      @include m.flex-column-center;
+      h1 {
+        margin-bottom: 0.8rem;
+      }
+
+      h2 {
+        margin-bottom: 1.5rem;
+      }
+      button {
+        @include m.red-button;
+      }
+
+      p {
+        font-size: v.$font-size-lg;
+      }
+
+      input {
+        @include m.toggle-input;
+      }
+
+      .buttonContainer {
+        width: 85%;
+        @include m.flex-row-center;
+
+        button {
+          margin-right: 1rem;
+        }
+      }
+      input {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

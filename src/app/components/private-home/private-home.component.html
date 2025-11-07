@@ -1,0 +1,113 @@
+<app-private-header></app-private-header>
+<div class="container">
+  <div class="add" *ngIf="dataService.list.length <= 0; else frmData">
+    <span>İlk Planlama İçin Tıklayınız</span>
+
+    <i class="fa-regular fa-square-plus" (click)="inf()"></i>
+  </div>
+  <ng-template #frmData>
+    <div *ngFor="let i of dataService.list" class="sub-container">
+      <div class="genelB">
+        <h2>💰</h2>
+        <h3>Genel Bütçe</h3>
+        <p *ngIf="!toggleGenelButce; else a">{{ i.genelButce }} TL</p>
+        <ng-template #a>
+          <input type="number" [(ngModel)]="newGButce" />
+        </ng-template>
+        <button type="button" (click)="toggleGButce()">Değiştir</button>
+      </div>
+      <div class="categories">
+        <h1>🍕🍟🥤</h1>
+        <h2>{{ i.kategori1.kat1Ad }}</h2>
+        <p *ngIf="!toggleKat1Butce; else b">{{ i.kategori1.kat1Butce }} TL</p>
+        <ng-template #b>
+          <input type="number" [(ngModel)]="newKat1Butce" />
+        </ng-template>
+        <div class="buttonContainer">
+          <button (click)="toggleKat1ButceFnc()">Değiştir</button>
+          <button (click)="dusKat1()">Bütçeden Düş</button>
+        </div>
+        <ng-container *ngIf="butceDusKat1">
+          <input type="number" placeholder="Tutar" [(ngModel)]="yemeIcme" />
+        </ng-container>
+      </div>
+      <div class="categories">
+        <h1>🌍🛩️</h1>
+        <h2>{{ i.kategori2.kat2Ad }}</h2>
+        <p *ngIf="!toggleKat2Butce; else c">{{ i.kategori2.kat2Butce }} TL</p>
+        <ng-template #c>
+          <input type="number" [(ngModel)]="newKat2Butce" />
+        </ng-template>
+        <div class="buttonContainer">
+          <button (click)="toggleKat2ButceFnc()">Değiştir</button>
+          <button (click)="dusKat2()">Bütçeden Düş</button>
+        </div>
+        <ng-container *ngIf="butceDusKat2">
+          <input type="number" placeholder="Tutar" [(ngModel)]="seyahat" />
+        </ng-container>
+      </div>
+      <div class="categories">
+        <h1>🚗</h1>
+        <h2>{{ i.kategori3.kat3Ad }}</h2>
+        <p *ngIf="!toggleKat3Butce; else d">{{ i.kategori3.kat3Butce }} TL</p>
+        <ng-template #d>
+          <input type="number" [(ngModel)]="newKat3Butce" />
+        </ng-template>
+        <div class="buttonContainer">
+          <button (click)="toggleKat3ButceFnc()">Değiştir</button>
+          <button (click)="dusKat3()">Bütçeden Düş</button>
+        </div>
+        <ng-container *ngIf="butceDusKat3">
+          <input type="number" placeholder="Tutar" [(ngModel)]="arac" />
+        </ng-container>
+      </div>
+      <div class="categories">
+        <h1>📒🖊️</h1>
+        <h2>{{ i.kategori4.kat4Ad }}</h2>
+        <p *ngIf="!toggleKat4Butce; else e">{{ i.kategori4.kat4Butce }} TL</p>
+        <ng-template #e>
+          <input type="number" [(ngModel)]="newKat4Butce" />
+        </ng-template>
+        <div class="buttonContainer">
+          <button (click)="toggleKat4ButceFnc()">Değiştir</button>
+          <button (click)="dusKat4()">Bütçeden Düş</button>
+        </div>
+        <ng-container *ngIf="butceDusKat4">
+          <input type="number" placeholder="Tutar" [(ngModel)]="egitim" />
+        </ng-container>
+      </div>
+      <div class="categories">
+        <h1>🎭</h1>
+        <h2>{{ i.kategori5.kat5Ad }}</h2>
+        <p *ngIf="!toggleKat5Butce; else f">{{ i.kategori5.kat5Butce }} TL</p>
+        <ng-template #f>
+          <input type="number" [(ngModel)]="newKat5Butce" />
+        </ng-template>
+        <div class="buttonContainer">
+          <button (click)="toggleKat5ButceFnc()">Değiştir</button>
+          <button (click)="dusKat5()">Bütçeden Düş</button>
+        </div>
+        <ng-container *ngIf="butceDusKat5">
+          <input type="number" placeholder="Tutar" [(ngModel)]="sosyal" />
+        </ng-container>
+      </div>
+      <div class="categories">
+        <h1>🧾</h1>
+        <h2>{{ i.kategori6.kat6Ad }}</h2>
+        <p *ngIf="!toggleKat6Butce; else h">{{ i.kategori6.kat6Butce }} TL</p>
+        <ng-template #h>
+          <input type="number" [(ngModel)]="newKat6Butce" />
+        </ng-template>
+        <div class="buttonContainer">
+          <button (click)="toggleKat6ButceFnc()">Değiştir</button>
+          <button (click)="dusKat6()">Bütçeden Düş</button>
+        </div>
+        <ng-container *ngIf="butceDusKat6">
+          <input type="number" placeholder="Tutar" [(ngModel)]="fatura" />
+        </ng-container>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<app-footer></app-footer>

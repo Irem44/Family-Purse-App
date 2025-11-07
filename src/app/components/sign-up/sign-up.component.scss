@@ -1,0 +1,57 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.signup-container {
+  width: 100%;
+  min-height: 100vh;
+  @include m.flex-column-center;
+
+  h1 {
+    color: v.$primary-color;
+    margin-bottom: 2rem;
+  }
+  .signup-content {
+    width: 450px;
+    height: 450px;
+    border: 2px solid v.$primary-color;
+    border-radius: v.$border-radius-md;
+    font-family: v.$font-family;
+
+    form {
+      width: 100%;
+      height: 100%;
+      @include m.flex-column-center;
+
+      .input {
+        @include m.input-style;
+      }
+
+      .password-content {
+        width: 80% !important;
+        @include m.flex-space-beetween;
+        @include m.input-style;
+
+        input {
+          width: 80%;
+          height: 2rem;
+          border: none;
+          font-size: v.$font-size-base;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .toggleButton {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: v.$font-size-base;
+      }
+      .kayit {
+        @include m.green-button;
+        margin-top: 1rem;
+      }
+    }
+  }
+}

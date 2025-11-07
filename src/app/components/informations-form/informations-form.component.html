@@ -1,0 +1,117 @@
+<app-private-header></app-private-header>
+<div class="data-container">
+  <h2>Planladığınız Giderler</h2>
+  <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
+    <input
+      type="number"
+      placeholder="(Genel Planladığınız Bütçenizi Giriniz)"
+      formControlName="genelButce"
+    />
+    <input type="number" placeholder="Max-Aşım" formControlName="maxAsim" />
+
+    <!-- 1.Kategori -->
+
+    <div formGroupName="kategori1">
+      <input type="text" formControlName="kat1Ad" readonly />
+      <input
+        class="first-inp"
+        type="number"
+        placeholder="Ayrılan Bütçe"
+        formControlName="kat1Butce"
+      />
+      <input
+        type="number"
+        placeholder="Max-Aşım"
+        formControlName="kat1MaxAsim"
+      />
+    </div>
+
+    <!-- 2.Kategori -->
+
+    <div formGroupName="kategori2">
+      <input type="text" formControlName="kat2Ad" readonly />
+      <input
+        class="first-inp"
+        type="number"
+        placeholder="Ayrılan Bütçe"
+        formControlName="kat2Butce"
+      />
+      <input
+        type="number"
+        placeholder="Max-Aşım"
+        formControlName="kat2MaxAsim"
+      />
+    </div>
+
+    <!-- 3.Kategori -->
+
+    <div formGroupName="kategori3">
+      <input type="text" formControlName="kat3Ad" readonly />
+      <input
+        class="first-inp"
+        type="number"
+        placeholder="Ayrılan Bütçe"
+        formControlName="kat3Butce"
+      />
+      <input
+        type="number"
+        placeholder="Max-Aşım"
+        formControlName="kat3MaxAsim"
+      />
+    </div>
+
+    <!-- 4.Kategori -->
+
+    <div formGroupName="kategori4">
+      <input type="text" formControlName="kat4Ad" readonly />
+      <input
+        class="first-inp"
+        type="number"
+        placeholder="Ayrılan Bütçe"
+        formControlName="kat4Butce"
+      />
+      <input
+        type="number"
+        placeholder="Max-Aşım"
+        formControlName="kat4MaxAsim"
+      />
+    </div>
+
+    <!-- 5.Kategori -->
+
+    <div formGroupName="kategori5">
+      <input type="text" formControlName="kat5Ad" readonly />
+      <input
+        class="first-inp"
+        type="number"
+        placeholder="Ayrılan Bütçe"
+        formControlName="kat5Butce"
+      />
+      <input
+        type="number"
+        placeholder="Max-Aşım"
+        formControlName="kat5MaxAsim"
+      />
+    </div>
+
+    <!-- 6.Kategori -->
+
+    <div formGroupName="kategori6">
+      <input type="text" formControlName="kat6Ad" readonly />
+      <input
+        class="first-inp"
+        type="number"
+        placeholder="Ayrılan Bütçe"
+        formControlName="kat6Butce"
+      />
+      <input
+        type="number"
+        placeholder="Max-Aşım"
+        formControlName="kat6MaxAsim"
+      />
+    </div>
+
+    <button type="submit">Kaydet</button>
+  </form>
+</div>
+<app-footer></app-footer>

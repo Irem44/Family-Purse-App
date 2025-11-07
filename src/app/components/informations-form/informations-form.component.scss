@@ -1,0 +1,44 @@
+@use "../../../styles/variables" as v;
+@use "../../../styles/mixins" as m;
+
+.data-container {
+  width: 100%;
+  height: auto;
+  @include m.flex-column-center;
+  padding: 4rem;
+  font-family: v.$font-family;
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  form {
+    width: 750px;
+    height: auto;
+    border: 2px solid v.$primary-color;
+    @include m.flex-column-center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    div {
+      width: 100%;
+      @include m.flex-column-center;
+    }
+    div > input:first-of-type {
+      border: none;
+    }
+    input {
+      @include m.input-style;
+    }
+
+    .first-inp {
+      margin-top: 1rem;
+    }
+
+    button {
+      @include m.green-button;
+    }
+  }
+}

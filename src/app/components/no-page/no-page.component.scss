@@ -1,0 +1,6 @@
+@use "../../../styles/variables" as v;
+.notFoundPage-conteainer {
+  padding: 2rem;
+  font-family: v.$font-family;
+  color: v.$danger-color;
+}

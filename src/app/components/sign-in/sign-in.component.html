@@ -1,0 +1,31 @@
+<div class="signin-container">
+  <h1>Giriş Yap</h1>
+  <div class="signin-content">
+    <form [formGroup]="frm">
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Email"
+        class="email"
+      />
+
+      <div class="password-content">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="Password"
+        />
+
+        <button (click)="togglePassword()" class="toggleButton">
+          <i
+            [class]="showPassword ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
+          ></i>
+        </button>
+      </div>
+
+      <button type="submit" class="giris" (click)="giris()">Giriş</button>
+      <span>Henüz üye değil misiniz? <a routerLink="/sign-up">Üye Ol</a></span>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

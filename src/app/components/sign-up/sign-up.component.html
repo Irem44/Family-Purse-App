@@ -1,0 +1,41 @@
+<div class="signup-container">
+  <h1>Kayıt Ol</h1>
+  <div class="signup-content">
+    <form [formGroup]="frm">
+      <input
+        class="input"
+        type="text"
+        placeholder="Name"
+        formControlName="name"
+      />
+      <input
+        class="input"
+        type="text"
+        placeholder="Surname"
+        formControlName="surname"
+      />
+      <input
+        class="input"
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+      <div class="password-content">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="Password"
+        />
+
+        <button (click)="togglePassword()" class="toggleButton">
+          <i
+            [class]="showPassword ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
+          ></i>
+        </button>
+      </div>
+
+      <button type="submit" class="kayit" (click)="kayit()">Kayıt Ol</button>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>
