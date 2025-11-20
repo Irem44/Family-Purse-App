@@ -20,12 +20,21 @@
         <h1>🍕🍟🥤</h1>
         <h2>{{ i.kategori1.kat1Ad }}</h2>
         <p *ngIf="!toggleKat1Butce; else b">{{ i.kategori1.kat1Butce }} TL</p>
+
         <ng-template #b>
           <input type="number" [(ngModel)]="newKat1Butce" />
         </ng-template>
+
         <div class="buttonContainer">
-          <button (click)="toggleKat1ButceFnc()">Değiştir</button>
-          <button (click)="dusKat1()">Bütçeden Düş</button>
+          <button
+            (click)="toggleKat1ButceFnc()"
+            [disabled]="kat1ToggleDisabled"
+          >
+            Değiştir
+          </button>
+          <button (click)="dusKat1()" [disabled]="kat1DusDisabled">
+            Bütçeden Düş
+          </button>
         </div>
         <ng-container *ngIf="butceDusKat1">
           <input type="number" placeholder="Tutar" [(ngModel)]="yemeIcme" />
@@ -39,8 +48,15 @@
           <input type="number" [(ngModel)]="newKat2Butce" />
         </ng-template>
         <div class="buttonContainer">
-          <button (click)="toggleKat2ButceFnc()">Değiştir</button>
-          <button (click)="dusKat2()">Bütçeden Düş</button>
+          <button
+            (click)="toggleKat2ButceFnc()"
+            [disabled]="kat2ToggleDisabled"
+          >
+            Değiştir
+          </button>
+          <button (click)="dusKat2()" [disabled]="kat2DusDisabled">
+            Bütçeden Düş
+          </button>
         </div>
         <ng-container *ngIf="butceDusKat2">
           <input type="number" placeholder="Tutar" [(ngModel)]="seyahat" />
@@ -54,8 +70,15 @@
           <input type="number" [(ngModel)]="newKat3Butce" />
         </ng-template>
         <div class="buttonContainer">
-          <button (click)="toggleKat3ButceFnc()">Değiştir</button>
-          <button (click)="dusKat3()">Bütçeden Düş</button>
+          <button
+            (click)="toggleKat3ButceFnc()"
+            [disabled]="kat3ToggleDisabled"
+          >
+            Değiştir
+          </button>
+          <button (click)="dusKat3()" [disabled]="kat3DusDisabled">
+            Bütçeden Düş
+          </button>
         </div>
         <ng-container *ngIf="butceDusKat3">
           <input type="number" placeholder="Tutar" [(ngModel)]="arac" />
@@ -69,8 +92,15 @@
           <input type="number" [(ngModel)]="newKat4Butce" />
         </ng-template>
         <div class="buttonContainer">
-          <button (click)="toggleKat4ButceFnc()">Değiştir</button>
-          <button (click)="dusKat4()">Bütçeden Düş</button>
+          <button
+            (click)="toggleKat4ButceFnc()"
+            [disabled]="kat4ToggleDisabled"
+          >
+            Değiştir
+          </button>
+          <button (click)="dusKat4()" [disabled]="kat4DusDisabled">
+            Bütçeden Düş
+          </button>
         </div>
         <ng-container *ngIf="butceDusKat4">
           <input type="number" placeholder="Tutar" [(ngModel)]="egitim" />
@@ -84,8 +114,15 @@
           <input type="number" [(ngModel)]="newKat5Butce" />
         </ng-template>
         <div class="buttonContainer">
-          <button (click)="toggleKat5ButceFnc()">Değiştir</button>
-          <button (click)="dusKat5()">Bütçeden Düş</button>
+          <button
+            (click)="toggleKat5ButceFnc()"
+            [disabled]="kat5ToggleDisabled"
+          >
+            Değiştir
+          </button>
+          <button (click)="dusKat5()" [disabled]="kat5DusDisabled">
+            Bütçeden Düş
+          </button>
         </div>
         <ng-container *ngIf="butceDusKat5">
           <input type="number" placeholder="Tutar" [(ngModel)]="sosyal" />
@@ -99,8 +136,15 @@
           <input type="number" [(ngModel)]="newKat6Butce" />
         </ng-template>
         <div class="buttonContainer">
-          <button (click)="toggleKat6ButceFnc()">Değiştir</button>
-          <button (click)="dusKat6()">Bütçeden Düş</button>
+          <button
+            (click)="toggleKat6ButceFnc()"
+            [disabled]="kat6ToggleDisabled"
+          >
+            Değiştir
+          </button>
+          <button (click)="dusKat6()" [disabled]="kat6DusDisabled">
+            Bütçeden Düş
+          </button>
         </div>
         <ng-container *ngIf="butceDusKat6">
           <input type="number" placeholder="Tutar" [(ngModel)]="fatura" />

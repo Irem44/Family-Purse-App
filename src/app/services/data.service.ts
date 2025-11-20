@@ -9,12 +9,12 @@ export class DataService {
     {
       genelButce: 1000,
       maxAsim: 200,
-      kategori1: { kat1Ad: 'Yeme-İçme', kat1Butce: 200, kat1MaxAsim: 50 },
-      kategori2: { kat2Ad: 'Seyahat', kat2Butce: 150, kat2MaxAsim: 30 },
-      kategori3: { kat3Ad: 'Araç', kat3Butce: 120, kat3MaxAsim: 20 },
-      kategori4: { kat4Ad: 'Eğitim', kat4Butce: 80, kat4MaxAsim: 10 },
-      kategori5: { kat5Ad: 'Sosyal', kat5Butce: 90, kat5MaxAsim: 20 },
-      kategori6: { kat6Ad: 'Fatura', kat6Butce: 60, kat6MaxAsim: 15 },
+      kategori1: { kat1Ad: 'Yeme-İçme', kat1Butce: 20 },
+      kategori2: { kat2Ad: 'Seyahat', kat2Butce: 15 },
+      kategori3: { kat3Ad: 'Araç', kat3Butce: 12 },
+      kategori4: { kat4Ad: 'Eğitim', kat4Butce: 8 },
+      kategori5: { kat5Ad: 'Sosyal', kat5Butce: 9 },
+      kategori6: { kat6Ad: 'Fatura', kat6Butce: 6 },
     },
   ];
 
@@ -48,8 +48,13 @@ export class DataService {
   }
 
   get reportDate() {
-    const date = new Date();
+    const now = new Date();
+    const date = now.toLocaleDateString('tr-TR');
+    const time = now.toLocaleTimeString('tr-TR', {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
 
-    return date.toLocaleString('tr-TR');
+    return [date, time];
   }
 }

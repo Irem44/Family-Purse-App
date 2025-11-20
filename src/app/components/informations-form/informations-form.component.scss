@@ -28,6 +28,8 @@
     }
     div > input:first-of-type {
       border: none;
+      margin: 0;
+      font-size: 20px;
     }
     input {
       @include m.input-style;

@@ -1,18 +1,25 @@
 <div class="report-container">
   <h1>Harcamalar</h1>
   <div class="sub-container">
-    <div *ngFor="let i of data">
-      <table>
-        <tr>
-          <td>{{ i.reportDate }}</td>
-          <td>{{ i.name }}</td>
-          <td>-{{ i.dusenMiktar }}</td>
-        </tr>
-        <tr class="kalan">
-          <td>Kalan:{{ i.kalanButce }}</td>
-        </tr>
-      </table>
-    </div>
+    <ng-container *ngIf="data.length > 0">
+      <div *ngFor="let i of data">
+        <table>
+          <tr>
+            <td>{{ i.reportDate[0] }}</td>
+
+            <td class="name">{{ i.name }}</td>
+            <td>-{{ i.dusenMiktar }}</td>
+          </tr>
+          <tr class="kalan">
+            <td>{{ i.reportDate[1] }}</td>
+            <td colspan="3">Kalan: {{ i.kalanButce }}</td>
+          </tr>
+        </table>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="data.length == 0">
+      <i class="fa-solid fa-wallet receiptLogo"></i>
+    </ng-container>
   </div>
 </div>
 <app-footer></app-footer>

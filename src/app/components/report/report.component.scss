@@ -14,9 +14,10 @@
   }
 
   .sub-container {
-    width: 700px;
+    width: 800px;
     min-height: 600px;
     border: 2px solid v.$primary-color;
+    margin-bottom: 2rem;
 
     div {
       width: 100%;
@@ -28,23 +29,53 @@
       table {
         width: 100%;
         height: 100%;
+        padding: 1rem;
 
-        .kalan {
-          width: 100%;
-          td {
-            width: 100%;
-            height: 100%;
+        table-layout: fixed;
+        font-family: v.$font-family;
+        font-size: v.$font-size-lg;
+        .kalan td {
+          width: 50%;
+          height: 100%;
+
+          &:first-child {
+            text-align: left;
+          }
+          &:last-child {
             text-align: right;
+            font-size: v.$font-size-sm;
+            color: v.$danger-color;
           }
         }
       }
       table > tr:first-of-type {
         width: 100%;
 
+        .name {
+          text-align: center;
+        }
+
         td {
           width: 33%;
           height: 100%;
+
+          &:last-child {
+            text-align: end;
+          }
         }
+      }
+    }
+
+    .receiptLogo {
+      font-size: 6rem;
+      color: v.$primary-color;
+      width: 100% !important;
+      height: 600px !important;
+      @include m.flex-column-center;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.2);
       }
     }
   }
