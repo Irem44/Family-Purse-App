@@ -57,6 +57,7 @@
   color: v.$light-color;
   border: none;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
 @mixin red-button {
@@ -72,8 +73,8 @@
 }
 
 @mixin input-style {
-  margin-bottom: 2rem;
-  width: 80%;
+  margin-bottom: 3rem;
+  width: 85%;
   height: 2rem;
   padding: 1.4rem;
   border-radius: v.$border-radius-md;

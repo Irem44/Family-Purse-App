@@ -11,8 +11,8 @@
     margin-bottom: 2rem;
   }
   .signup-content {
-    width: 450px;
-    height: 450px;
+    width: 600px;
+    height: 600px;
     border: 2px solid v.$primary-color;
     border-radius: v.$border-radius-md;
     font-family: v.$font-family;
@@ -27,7 +27,7 @@
       }
 
       .password-content {
-        width: 80% !important;
+        width: 85% !important;
         @include m.flex-space-beetween;
         @include m.input-style;
 

@@ -1,12 +1,12 @@
 <app-private-header></app-private-header>
 <div class="container">
-  <div class="add" *ngIf="dataService.list.length <= 0; else frmData">
+  <div class="add" *ngIf="dataList.length <= 0; else frmData">
     <span>İlk Planlama İçin Tıklayınız</span>
 
     <i class="fa-regular fa-square-plus" (click)="inf()"></i>
   </div>
   <ng-template #frmData>
-    <div *ngFor="let i of dataService.list" class="sub-container">
+    <div *ngFor="let i of dataList" class="sub-container">
       <div class="genelB">
         <h2>💰</h2>
         <h3>Genel Bütçe</h3>

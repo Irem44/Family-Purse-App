@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { reportData } from '../../models/formdata.model';
+import { Data, reportData } from '../../models/formdata.model';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Action } from 'rxjs/internal/scheduler/Action';
 
@@ -61,6 +61,7 @@ export class PrivateHomeComponent {
   kat4DusDisabled: any = false;
   kat5DusDisabled: any = false;
   kat6DusDisabled: any = false;
+  dataList: Data[] = [];
 
   constructor(
     private router: Router,
@@ -68,6 +69,9 @@ export class PrivateHomeComponent {
     private snackBar: MatSnackBar
   ) {}
 
+  ngOnInit() {
+    this.dataList = this.dataService.list;
+  }
   openSnackBar(message: string) {
     this.snackBar.open(message, 'Kapat', {
       duration: 3000,
@@ -82,17 +86,38 @@ export class PrivateHomeComponent {
   // Changing
   toggleGButce() {
     this.toggleGenelButce = !this.toggleGenelButce;
-    this.dataService.list.forEach((x) => {
+
+    this.dataList.forEach((x) => {
+      const toplam =
+        x.kategori1.kat1Butce +
+        x.kategori2.kat2Butce +
+        x.kategori3.kat3Butce +
+        x.kategori4.kat4Butce +
+        x.kategori5.kat5Butce +
+        x.kategori6.kat6Butce;
+
+      if (this.newGButce === null || this.newGButce === undefined) {
+        return;
+      }
+      if (this.newGButce < 0) {
+        this.openSnackBar('Negatif değer girmeyiniz');
+        return;
+      }
+      if (this.newGButce < toplam) {
+        this.openSnackBar('Genel bütçe toplamdan büyük olmalı');
+        return;
+      }
+
       x.genelButce = this.newGButce;
+      this.newGButce = 0;
     });
   }
 
   toggleKat1ButceFnc() {
     this.toggleKat1Butce = !this.toggleKat1Butce;
-    this.kat1DusDisabled = true;
-
-    this.dataService.list.forEach((x) => {
-      if (this.newKat1Butce != undefined) {
+    this.kat1DusDisabled = this.toggleKat1Butce;
+    this.dataList.forEach((x) => {
+      if (this.newKat1Butce != undefined && this.newKat1Butce !== null) {
         const kat1 = x.kategori1.kat1Butce;
         x.kategori1.kat1Butce = this.newKat1Butce;
 
@@ -103,16 +128,17 @@ export class PrivateHomeComponent {
           const sb = kat1 - this.newKat1Butce;
           x.genelButce = x.genelButce + sb;
         }
-        this.kat1DusDisabled = false;
+
+        this.newKat1Butce = 0;
       }
     });
   }
   toggleKat2ButceFnc() {
     this.toggleKat2Butce = !this.toggleKat2Butce;
-    this.kat2DusDisabled = true;
+    this.kat2DusDisabled = this.toggleKat2Butce;
 
-    this.dataService.list.forEach((x) => {
-      if (this.newKat2Butce != undefined) {
+    this.dataList.forEach((x) => {
+      if (this.newKat2Butce != undefined && this.newKat2Butce !== null) {
         const kat2 = x.kategori2.kat2Butce;
         x.kategori2.kat2Butce = this.newKat2Butce;
 
@@ -123,16 +149,16 @@ export class PrivateHomeComponent {
           const sb = kat2 - this.newKat2Butce;
           x.genelButce = x.genelButce + sb;
         }
-        this.kat2DusDisabled = false;
+        this.newKat2Butce = 0;
       }
     });
   }
   toggleKat3ButceFnc() {
     this.toggleKat3Butce = !this.toggleKat3Butce;
-    this.kat3DusDisabled = true;
+    this.kat3DusDisabled = this.toggleKat3Butce;
 
-    this.dataService.list.forEach((x) => {
-      if (this.newKat3Butce != undefined) {
+    this.dataList.forEach((x) => {
+      if (this.newKat3Butce != undefined && this.newKat3Butce !== null) {
         const kat3 = x.kategori3.kat3Butce;
         x.kategori3.kat3Butce = this.newKat3Butce;
 
@@ -143,16 +169,17 @@ export class PrivateHomeComponent {
           const sb = kat3 - this.newKat3Butce;
           x.genelButce = x.genelButce + sb;
         }
-        this.kat3DusDisabled = false;
+
+        this.newKat3Butce = 0;
       }
     });
   }
   toggleKat4ButceFnc() {
     this.toggleKat4Butce = !this.toggleKat4Butce;
-    this.kat4DusDisabled = true;
+    this.kat4DusDisabled = this.toggleKat4Butce;
 
-    this.dataService.list.forEach((x) => {
-      if (this.newKat4Butce != undefined) {
+    this.dataList.forEach((x) => {
+      if (this.newKat4Butce != undefined && this.newKat4Butce !== null) {
         const kat4 = x.kategori4.kat4Butce;
         x.kategori4.kat4Butce = this.newKat4Butce;
 
@@ -163,16 +190,17 @@ export class PrivateHomeComponent {
           const sb = kat4 - this.newKat4Butce;
           x.genelButce = x.genelButce + sb;
         }
-        this.kat4DusDisabled = false;
+
+        this.newKat4Butce = 0;
       }
     });
   }
   toggleKat5ButceFnc() {
     this.toggleKat5Butce = !this.toggleKat5Butce;
-    this.kat5DusDisabled = true;
+    this.kat5DusDisabled = this.toggleKat5Butce;
 
-    this.dataService.list.forEach((x) => {
-      if (this.newKat5Butce != undefined) {
+    this.dataList.forEach((x) => {
+      if (this.newKat5Butce != undefined && this.newKat5Butce !== null) {
         const kat5 = x.kategori5.kat5Butce;
         x.kategori5.kat5Butce = this.newKat5Butce;
 
@@ -183,16 +211,17 @@ export class PrivateHomeComponent {
           const sb = kat5 - this.newKat5Butce;
           x.genelButce = x.genelButce + sb;
         }
-        this.kat5DusDisabled = false;
+
+        this.newKat5Butce = 0;
       }
     });
   }
   toggleKat6ButceFnc() {
     this.toggleKat6Butce = !this.toggleKat6Butce;
-    this.kat6DusDisabled = true;
+    this.kat6DusDisabled = this.toggleKat6Butce;
 
-    this.dataService.list.forEach((x) => {
-      if (this.newKat6Butce != undefined) {
+    this.dataList.forEach((x) => {
+      if (this.newKat6Butce != undefined && this.newKat6Butce !== null) {
         const kat6 = x.kategori6.kat6Butce;
         x.kategori6.kat6Butce = this.newKat6Butce;
 
@@ -203,7 +232,8 @@ export class PrivateHomeComponent {
           const sb = kat6 - this.newKat6Butce;
           x.genelButce = x.genelButce + sb;
         }
-        this.kat6DusDisabled = false;
+
+        this.newKat6Butce = 0;
       }
     });
   }
@@ -212,10 +242,10 @@ export class PrivateHomeComponent {
 
   dusKat1() {
     this.butceDusKat1 = !this.butceDusKat1;
-    this.kat1ToggleDisabled = true;
+    this.kat1ToggleDisabled = this.butceDusKat1;
 
     if (!this.butceDusKat1) {
-      this.dataService.list.forEach((x) => {
+      this.dataList.forEach((x) => {
         if (this.yemeIcme >= 0) {
           if (x.kategori1.kat1Butce >= this.yemeIcme) {
             x.kategori1.kat1Butce -= this.yemeIcme;
@@ -238,15 +268,15 @@ export class PrivateHomeComponent {
           this.openSnackBar('Negatif Değer Girdiniz');
         }
 
-        this.kat1ToggleDisabled = false;
+        this.yemeIcme = 0;
       });
     }
   }
   dusKat2() {
     this.butceDusKat2 = !this.butceDusKat2;
-    this.kat2ToggleDisabled = true;
+    this.kat2ToggleDisabled = this.butceDusKat2;
     if (!this.butceDusKat2) {
-      this.dataService.list.forEach((x) => {
+      this.dataList.forEach((x) => {
         if (this.seyahat >= 0) {
           if (x.kategori2.kat2Butce >= this.seyahat) {
             x.kategori2.kat2Butce -= this.seyahat;
@@ -269,16 +299,16 @@ export class PrivateHomeComponent {
           this.openSnackBar('Negatif Değer Girdiniz');
         }
 
-        this.kat2ToggleDisabled = false;
+        this.seyahat = 0;
       });
     }
   }
   dusKat3() {
     this.butceDusKat3 = !this.butceDusKat3;
-    this.kat3ToggleDisabled = true;
+    this.kat3ToggleDisabled = this.butceDusKat3;
 
     if (!this.butceDusKat3) {
-      this.dataService.list.forEach((x) => {
+      this.dataList.forEach((x) => {
         if (this.arac >= 0) {
           if (x.kategori3.kat3Butce >= this.arac) {
             x.kategori3.kat3Butce -= this.arac;
@@ -301,16 +331,16 @@ export class PrivateHomeComponent {
           this.openSnackBar('Negatif Değer Girdiniz');
         }
 
-        this.kat3ToggleDisabled = false;
+        this.arac = 0;
       });
     }
   }
   dusKat4() {
     this.butceDusKat4 = !this.butceDusKat4;
-    this.kat4ToggleDisabled = true;
+    this.kat4ToggleDisabled = this.butceDusKat4;
 
     if (!this.butceDusKat4) {
-      this.dataService.list.forEach((x) => {
+      this.dataList.forEach((x) => {
         if (this.egitim >= 0) {
           if (x.kategori4.kat4Butce >= this.egitim) {
             x.kategori4.kat4Butce -= this.egitim;
@@ -332,16 +362,17 @@ export class PrivateHomeComponent {
         } else if (this.egitim < 0) {
           this.openSnackBar('Negatif Değer Girdiniz');
         }
-        this.kat4ToggleDisabled = false;
+
+        this.egitim = 0;
       });
     }
   }
   dusKat5() {
     this.butceDusKat5 = !this.butceDusKat5;
-    this.kat5ToggleDisabled = true;
+    this.kat5ToggleDisabled = this.butceDusKat5;
 
     if (!this.butceDusKat5) {
-      this.dataService.list.forEach((x) => {
+      this.dataList.forEach((x) => {
         if (this.sosyal >= 0) {
           if (x.kategori5.kat5Butce >= this.sosyal) {
             x.kategori5.kat5Butce -= this.sosyal;
@@ -364,16 +395,16 @@ export class PrivateHomeComponent {
           this.openSnackBar('Negatif Değer Girdiniz');
         }
 
-        this.kat5ToggleDisabled = false;
+        this.sosyal = 0;
       });
     }
   }
   dusKat6() {
     this.butceDusKat6 = !this.butceDusKat6;
-    this.kat6ToggleDisabled = true;
+    this.kat6ToggleDisabled = this.butceDusKat6;
 
     if (!this.butceDusKat6) {
-      this.dataService.list.forEach((x) => {
+      this.dataList.forEach((x) => {
         if (this.fatura >= 0) {
           if (x.kategori6.kat6Butce >= this.fatura) {
             x.kategori6.kat6Butce -= this.fatura;
@@ -395,7 +426,8 @@ export class PrivateHomeComponent {
         } else if (this.fatura < 0) {
           this.openSnackBar('Negatif Değer Girdiniz');
         }
-        this.kat6ToggleDisabled = false;
+
+        this.fatura = 0;
       });
     }
   }

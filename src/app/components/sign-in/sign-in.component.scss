@@ -11,8 +11,8 @@
     margin-bottom: 2rem;
   }
   .signin-content {
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     border: 2px solid v.$primary-color;
     border-radius: v.$border-radius-md;
     font-family: v.$font-family;
@@ -23,7 +23,7 @@
       @include m.flex-column-center;
 
       .password-content {
-        width: 80% !important;
+        width: 85% !important;
         @include m.flex-space-beetween;
         @include m.input-style;
 

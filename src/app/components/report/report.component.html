@@ -1,5 +1,16 @@
 <div class="report-container">
   <h1>Harcamalar</h1>
+
+  <div class="search-container">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input
+      type="text"
+      [(ngModel)]="searchData"
+      (input)="onSearchChange()"
+      placeholder="Kategori Giriniz"
+    />
+  </div>
+
   <div class="sub-container">
     <ng-container *ngIf="data.length > 0">
       <div *ngFor="let i of data">

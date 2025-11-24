@@ -7,10 +7,34 @@
   @include m.flex-column-center;
   font-family: v.$font-family;
   padding: 2rem;
+  cursor: pointer;
+
+  .search-container {
+    width: 800px;
+    height: 30px;
+    border: 2px solid v.$primary-color;
+    margin: 1rem 0 1.5rem 0;
+    padding: 1.4rem;
+    border-radius: v.$border-radius-md;
+    @include m.flex-row-start;
+
+    input {
+      width: 98%;
+      height: 30px;
+      border: none;
+      margin-left: 0.5rem;
+      font-size: v.$font-size-sm;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 
   h1 {
     color: v.$danger-color;
-    margin: 1rem 0 3rem 0;
+    margin: 1rem 0;
+    font-size: 2.5rem;
   }
 
   .sub-container {
